@@ -10,8 +10,12 @@
 		0A4D9E71F6B937DA9943FAEC /* Pods_iTunesSearchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F83D4E24DDBCB77BAF21C0E6 /* Pods_iTunesSearchTests.framework */; };
 		349FD349F269D17A848A2A05 /* Pods_iTunesSearchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C52976C0D7C64740CE74F70 /* Pods_iTunesSearchUITests.framework */; };
 		AC08AF01C4F8F50760DE1313 /* Pods_iTunesSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F80AEE0C7CEA35D27001419 /* Pods_iTunesSearch.framework */; };
+		BE6E45B01F47AD1100E64E1B /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E45AF1F47AD1100E64E1B /* APIManager.swift */; };
+		BE6E45B21F47AEDA00E64E1B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E45B11F47AEDA00E64E1B /* Constants.swift */; };
+		BE6E45B41F47C13200E64E1B /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E45B31F47C13200E64E1B /* TrackTableViewCell.swift */; };
+		BE6E45B61F47C91800E64E1B /* TrackDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E45B51F47C91800E64E1B /* TrackDetailViewController.swift */; };
 		BE82AAB01F4790190051D40E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE82AAAF1F4790190051D40E /* AppDelegate.swift */; };
-		BE82AAB21F4790190051D40E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE82AAB11F4790190051D40E /* ViewController.swift */; };
+		BE82AAB21F4790190051D40E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE82AAB11F4790190051D40E /* SearchViewController.swift */; };
 		BE82AAB51F4790190051D40E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE82AAB31F4790190051D40E /* Main.storyboard */; };
 		BE82AAB81F4790190051D40E /* iTunesSearch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BE82AAB61F4790190051D40E /* iTunesSearch.xcdatamodeld */; };
 		BE82AABA1F4790190051D40E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE82AAB91F4790190051D40E /* Assets.xcassets */; };
@@ -43,9 +47,13 @@
 		4C52976C0D7C64740CE74F70 /* Pods_iTunesSearchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iTunesSearchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F80AEE0C7CEA35D27001419 /* Pods_iTunesSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iTunesSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6747B3F01F0770D54C84AD10 /* Pods-iTunesSearchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesSearchUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesSearchUITests/Pods-iTunesSearchUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BE6E45AF1F47AD1100E64E1B /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIManager.swift; path = Utilities/APIManager.swift; sourceTree = "<group>"; };
+		BE6E45B11F47AEDA00E64E1B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
+		BE6E45B31F47C13200E64E1B /* TrackTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackTableViewCell.swift; sourceTree = "<group>"; };
+		BE6E45B51F47C91800E64E1B /* TrackDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackDetailViewController.swift; sourceTree = "<group>"; };
 		BE82AAAC1F4790190051D40E /* iTunesSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE82AAAF1F4790190051D40E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BE82AAB11F4790190051D40E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BE82AAB11F4790190051D40E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BE82AAB41F4790190051D40E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BE82AAB71F4790190051D40E /* iTunesSearch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iTunesSearch.xcdatamodel; sourceTree = "<group>"; };
 		BE82AAB91F4790190051D40E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -114,6 +122,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BE6E45AE1F47ACD900E64E1B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				BE6E45AF1F47AD1100E64E1B /* APIManager.swift */,
+				BE6E45B11F47AEDA00E64E1B /* Constants.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		BE82AAA31F4790180051D40E = {
 			isa = PBXGroup;
 			children = (
@@ -139,9 +156,12 @@
 		BE82AAAE1F4790190051D40E /* iTunesSearch */ = {
 			isa = PBXGroup;
 			children = (
+				BE6E45AE1F47ACD900E64E1B /* Utilities */,
 				BE82AAAF1F4790190051D40E /* AppDelegate.swift */,
-				BE82AAB11F4790190051D40E /* ViewController.swift */,
+				BE82AAB11F4790190051D40E /* SearchViewController.swift */,
+				BE6E45B51F47C91800E64E1B /* TrackDetailViewController.swift */,
 				BE82AAB31F4790190051D40E /* Main.storyboard */,
+				BE6E45B31F47C13200E64E1B /* TrackTableViewCell.swift */,
 				BE82AAB91F4790190051D40E /* Assets.xcassets */,
 				BE82AABB1F4790190051D40E /* LaunchScreen.storyboard */,
 				BE82AABE1F4790190051D40E /* Info.plist */,
@@ -416,10 +436,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-iTunesSearch/Pods-iTunesSearch-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,9 +486,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE6E45B21F47AEDA00E64E1B /* Constants.swift in Sources */,
+				BE6E45B41F47C13200E64E1B /* TrackTableViewCell.swift in Sources */,
+				BE6E45B01F47AD1100E64E1B /* APIManager.swift in Sources */,
 				BE82AAB81F4790190051D40E /* iTunesSearch.xcdatamodeld in Sources */,
-				BE82AAB21F4790190051D40E /* ViewController.swift in Sources */,
+				BE82AAB21F4790190051D40E /* SearchViewController.swift in Sources */,
 				BE82AAB01F4790190051D40E /* AppDelegate.swift in Sources */,
+				BE6E45B61F47C91800E64E1B /* TrackDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -723,6 +749,7 @@
 				BE82AAD91F4790190051D40E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BE82AADA1F4790190051D40E /* Build configuration list for PBXNativeTarget "iTunesSearchTests" */ = {
 			isa = XCConfigurationList;
@@ -731,6 +758,7 @@
 				BE82AADC1F4790190051D40E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BE82AADD1F4790190051D40E /* Build configuration list for PBXNativeTarget "iTunesSearchUITests" */ = {
 			isa = XCConfigurationList;
@@ -739,6 +767,7 @@
 				BE82AADF1F4790190051D40E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
