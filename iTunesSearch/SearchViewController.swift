@@ -14,9 +14,10 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var noResultsLabel: UILabel!
     
     var searchResults = [JSON]()
-    var selectedEntity = "allTrack"
+    var selectedEntity = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +25,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewWillAppear(_ animated: Bool) {
         
-        if (searchBar.text?.characters.count)! > 0 {
-            search()
-        }
+        search()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,19 +36,23 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return 92
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
+    }
+    
     @IBAction func selectSegment(_ sender: UISegmentedControl) {
         
         switch(sender.selectedSegmentIndex) {
         case 0:
-            selectedEntity = "allTrack"
+            selectedEntity = ""
             search()
             break;
         case 1:
-            selectedEntity = "album"
+            selectedEntity = "song"
             search()
             break;
         case 2:
-            selectedEntity = "audiobook"
+            selectedEntity = "movie"
             search()
             break;
         case 3:
@@ -65,23 +68,27 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "trackCell", for: indexPath) as! TrackTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.trackCell, for: indexPath) as! TrackTableViewCell
         
         let result = searchResults[indexPath.row]
         
-        let url = URL(string: result["artworkUrl60"].stringValue)!
+        let url = URL(string: result[Constants.keys.artwork60].stringValue)!
         cell.trackImageView.kf.setImage(with: url)
         
-        cell.trackNameLabel.text = result["trackName"].stringValue
-        cell.kindLabel.text = result["kind"].stringValue
-        cell.trackPriceLabel.text = "$\(result["trackPrice"].stringValue)"
+        cell.trackNameLabel.text = result[Constants.keys.trackName].stringValue
+        cell.kindLabel.text = result[Constants.keys.kind].stringValue
+        
+        var price = result[Constants.keys.trackPrice].stringValue
+        price = formatCurrency(value: price)
+        
+        cell.trackPriceLabel.text = formatCurrency(value: price)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "trackCell") as! TrackTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.trackCell) as! TrackTableViewCell
         cell.imageView?.kf.cancelDownloadTask()
     }
     
@@ -101,13 +108,27 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     
                     self.searchResults.removeAll()
                     
-                    print(results!)
+                    if (results?.count)! > 0 {
                     
-                    for item in results! {
-                        self.searchResults.append(item.1)
+                        self.noResultsLabel.isHidden = true
+                        
+                        for item in results! {
+                            
+                            self.searchResults.append(item.1)
+                        }
+                        
+                    } else {
+                        
+                        self.noResultsLabel.isHidden = false
+                        self.noResultsLabel.text = "No results for \(String(describing: self.searchBar.text!))."
                     }
                     
                     self.tableView.reloadData()
+                    
+                } else {
+                    
+                    self.noResultsLabel.isHidden = false
+                    self.noResultsLabel.text = "There was an error processing the search."
                 }
             }
         }
@@ -124,16 +145,21 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 trackDetailViewController.result = self.searchResults[indexPath.row]
             }
             
-        } else if segue.identifier == "chooseEntity" {
-            
-            
         }
     }
     
+    func formatCurrency(value: String) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.maximumFractionDigits = 2
+        formatter.locale = Locale(identifier: Locale.current.identifier)
+        let result = formatter.string(from: Double(value)! as NSNumber)
+        return result!
+    }
+    
     override func didReceiveMemoryWarning() {
+        
         super.didReceiveMemoryWarning()
     }
-
-
 }
 

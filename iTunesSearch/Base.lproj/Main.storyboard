@@ -50,21 +50,21 @@
                                                     <rect key="frame" x="92" y="26" width="209" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="kindLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZf-qw-fba">
                                                     <rect key="frame" x="92" y="51" width="209" height="16"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="trackPriceLabel" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8R-ux-MXb">
                                                     <rect key="frame" x="309" y="36" width="50" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.23921568630000001" green="0.54117647059999996" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -83,6 +83,13 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="UJ5-2f-OeL"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To begin, enter a query in the search bar." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6tG-ld-1Ol">
+                                <rect key="frame" x="88" y="292" width="200" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rYu-fe-BAI">
                                 <rect key="frame" x="0.0" y="108" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -93,8 +100,8 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <segments>
                                             <segment title="All"/>
-                                            <segment title="Album"/>
-                                            <segment title="Audiobook"/>
+                                            <segment title="Song"/>
+                                            <segment title="Movie"/>
                                             <segment title="Podcast"/>
                                             <segment title="More"/>
                                         </segments>
@@ -110,6 +117,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="xUT-zc-jUt"/>
                     <connections>
+                        <outlet property="noResultsLabel" destination="6tG-ld-1Ol" id="lzk-F1-rGg"/>
                         <outlet property="searchBar" destination="WxQ-7q-OWL" id="fGC-W0-dKa"/>
                         <outlet property="tableView" destination="soy-GU-6MP" id="raX-GJ-do9"/>
                         <segue destination="Pux-EQ-o9K" kind="show" identifier="chooseEntity" id="QZY-1E-jFA"/>
@@ -135,15 +143,15 @@
                                 <rect key="frame" x="137" y="118" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="trackNameLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aS2-rm-yTs">
-                                <rect key="frame" x="37" y="241" width="300" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="trackNameLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aS2-rm-yTs">
+                                <rect key="frame" x="37" y="241" width="300" height="61"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="descriptionLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVZ-GF-22s">
-                                <rect key="frame" x="37" y="270" width="300" height="124"/>
+                                <rect key="frame" x="37" y="310" width="300" height="337"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -163,7 +171,7 @@
             </objects>
             <point key="canvasLocation" x="1820" y="138.98050974512745"/>
         </scene>
-        <!--Entity Table View Controller-->
+        <!--Entities-->
         <scene sceneID="M3N-oL-hFy">
             <objects>
                 <tableViewController id="Pux-EQ-o9K" customClass="EntityTableViewController" customModule="iTunesSearch" customModuleProvider="target" sceneMemberID="viewController">
@@ -186,6 +194,7 @@
                             <outlet property="delegate" destination="Pux-EQ-o9K" id="QEf-kn-0AX"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Entities" id="gGb-es-bA4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BGE-II-8uR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

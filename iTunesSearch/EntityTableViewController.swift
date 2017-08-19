@@ -10,7 +10,17 @@ import UIKit
 
 class EntityTableViewController: UITableViewController {
     
-    var entities = [["All" : "allTrack"], ["Movie" : "movie"], ["Podcast" : "podcast"], ["Track" : "musicTrack"], ["Album" : "album"], ["Song" : "song"], ["Mix" : "mix"], ["Music Video" : "musicVideo"], ["Audiobook" : "audiobook"], ["Short Film" : "shortFilm"], ["TV Show" : "tvShow"], ["Software" : "software"], ["eBook" : "ebook"]]
+    var entities = [["All" : "allTrack"],
+                    ["Audiobook" : "audiobook"],
+                    ["eBook" : "ebook"],
+                    ["Movie" : "movie"],
+                    ["Music Video" : "musicVideo"],
+                    ["Podcast" : "podcast"],
+                    ["Short Film" : "shortFilm"],
+                    ["Software" : "software"],
+                    ["Song" : "song"],
+                    ["Track" : "musicTrack"],
+                    ["TV Show" : "tvSeason"]]
 
     override func viewDidLoad() {
         
@@ -29,7 +39,7 @@ class EntityTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "entityCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.entityCell, for: indexPath)
         
         cell.textLabel?.text = entities[indexPath.row].keys.first
 

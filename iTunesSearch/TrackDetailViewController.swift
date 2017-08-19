@@ -21,11 +21,11 @@ class TrackDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let url = URL(string: result["artworkUrl100"].stringValue)!
+        let url = URL(string: result[Constants.keys.artwork100].stringValue)!
         trackImageView.kf.setImage(with: url)
         
-        trackNameLabel.text = result["trackName"].stringValue
-        descriptionLabel.text = result["description"].stringValue
+        trackNameLabel.text = result[Constants.keys.trackName].stringValue
+        descriptionLabel.text = result[Constants.keys.description].stringValue
     }
 
     override func didReceiveMemoryWarning() {

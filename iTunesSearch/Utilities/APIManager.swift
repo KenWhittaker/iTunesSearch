@@ -48,10 +48,7 @@ public class APIManager {
     
     private func clientURLRequest(path: String, params: String) -> NSMutableURLRequest {
         
-        print("params: \(params)")
-        
-        let urlString = Constants.URLs.base + path + "?" + "term=" + params
-        
+        let urlString = Constants.urls.base + path + params
         let url = URL(string: urlString)!
         let request = NSMutableURLRequest(url: url)
 
@@ -64,17 +61,17 @@ public class APIManager {
         
         let encodedTerm = term.replacingOccurrences(of: " ", with: "+").lowercased()
         
-        get(request: clientURLRequest(path: Constants.Routes.path, params: encodedTerm + "&entity=" + entity)) { (success, object) -> () in
+        get(request: clientURLRequest(path: Constants.routes.path, params: "?" + "term=" + encodedTerm + "&entity=" + entity)) { (success, object) -> () in
             
             DispatchQueue.main.async {
                 
                 if success {
                     
-                    completion(true, object["results"])
+                    completion(true, object[Constants.keys.results])
                     
                 } else {
                     
-                    completion(false, "Error")
+                    completion(false, object[Constants.keys.errorMessage])
                 }
             }
         }
