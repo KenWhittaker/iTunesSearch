@@ -14,6 +14,7 @@
 		BE6E45B21F47AEDA00E64E1B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E45B11F47AEDA00E64E1B /* Constants.swift */; };
 		BE6E45B41F47C13200E64E1B /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E45B31F47C13200E64E1B /* TrackTableViewCell.swift */; };
 		BE6E45B61F47C91800E64E1B /* TrackDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E45B51F47C91800E64E1B /* TrackDetailViewController.swift */; };
+		BE6E45B81F47D50C00E64E1B /* EntityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E45B71F47D50C00E64E1B /* EntityTableViewController.swift */; };
 		BE82AAB01F4790190051D40E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE82AAAF1F4790190051D40E /* AppDelegate.swift */; };
 		BE82AAB21F4790190051D40E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE82AAB11F4790190051D40E /* SearchViewController.swift */; };
 		BE82AAB51F4790190051D40E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE82AAB31F4790190051D40E /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 		BE6E45B11F47AEDA00E64E1B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
 		BE6E45B31F47C13200E64E1B /* TrackTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackTableViewCell.swift; sourceTree = "<group>"; };
 		BE6E45B51F47C91800E64E1B /* TrackDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackDetailViewController.swift; sourceTree = "<group>"; };
+		BE6E45B71F47D50C00E64E1B /* EntityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityTableViewController.swift; sourceTree = "<group>"; };
 		BE82AAAC1F4790190051D40E /* iTunesSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE82AAAF1F4790190051D40E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE82AAB11F4790190051D40E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -156,16 +158,17 @@
 		BE82AAAE1F4790190051D40E /* iTunesSearch */ = {
 			isa = PBXGroup;
 			children = (
-				BE6E45AE1F47ACD900E64E1B /* Utilities */,
+				BE82AABB1F4790190051D40E /* LaunchScreen.storyboard */,
+				BE82AAB31F4790190051D40E /* Main.storyboard */,
 				BE82AAAF1F4790190051D40E /* AppDelegate.swift */,
 				BE82AAB11F4790190051D40E /* SearchViewController.swift */,
 				BE6E45B51F47C91800E64E1B /* TrackDetailViewController.swift */,
-				BE82AAB31F4790190051D40E /* Main.storyboard */,
+				BE6E45B71F47D50C00E64E1B /* EntityTableViewController.swift */,
 				BE6E45B31F47C13200E64E1B /* TrackTableViewCell.swift */,
-				BE82AAB91F4790190051D40E /* Assets.xcassets */,
-				BE82AABB1F4790190051D40E /* LaunchScreen.storyboard */,
+				BE6E45AE1F47ACD900E64E1B /* Utilities */,
 				BE82AABE1F4790190051D40E /* Info.plist */,
 				BE82AAB61F4790190051D40E /* iTunesSearch.xcdatamodeld */,
+				BE82AAB91F4790190051D40E /* Assets.xcassets */,
 			);
 			path = iTunesSearch;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				BE82AAB81F4790190051D40E /* iTunesSearch.xcdatamodeld in Sources */,
 				BE82AAB21F4790190051D40E /* SearchViewController.swift in Sources */,
 				BE82AAB01F4790190051D40E /* AppDelegate.swift in Sources */,
+				BE6E45B81F47D50C00E64E1B /* EntityTableViewController.swift in Sources */,
 				BE6E45B61F47C91800E64E1B /* TrackDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
