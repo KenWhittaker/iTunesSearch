@@ -25,6 +25,8 @@ class TrackDetailViewController: UIViewController {
         trackImageView.kf.setImage(with: url)
         
         trackNameLabel.text = result[Constants.keys.trackName].stringValue
-        descriptionLabel.text = result[Constants.keys.description].stringValue
+        
+        let description = result[Constants.keys.description].stringValue
+        descriptionLabel.text = description.isEmpty ? "NA" : description
     }
 }
