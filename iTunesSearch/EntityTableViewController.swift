@@ -54,8 +54,4 @@ class EntityTableViewController: UITableViewController {
         searchViewController.selectedEntity = selectedEntity
         self.navigationController?.popViewController(animated: true)
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 }

@@ -27,9 +27,4 @@ class TrackDetailViewController: UIViewController {
         trackNameLabel.text = result[Constants.keys.trackName].stringValue
         descriptionLabel.text = result[Constants.keys.description].stringValue
     }
-
-    override func didReceiveMemoryWarning() {
-        
-        super.didReceiveMemoryWarning()
-    }
 }

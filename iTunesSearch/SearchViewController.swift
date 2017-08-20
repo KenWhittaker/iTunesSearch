@@ -156,10 +156,5 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let result = formatter.string(from: Double(value)! as NSNumber)
         return result!
     }
-    
-    override func didReceiveMemoryWarning() {
-        
-        super.didReceiveMemoryWarning()
-    }
 }
 

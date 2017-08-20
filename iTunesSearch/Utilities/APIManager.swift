@@ -34,14 +34,6 @@ public class APIManager {
         }.resume()
     }
     
-    private func post(request: NSMutableURLRequest, completion: @escaping (_ success: Bool, _ object: JSON) -> ()) {
-        dataTask(request: request, method: "POST", completion: completion)
-    }
-    
-    private func put(request: NSMutableURLRequest, completion: @escaping (_ success: Bool, _ object: JSON) -> ()) {
-        dataTask(request: request, method: "PUT", completion: completion)
-    }
-    
     private func get(request: NSMutableURLRequest, completion: @escaping (_ success: Bool, _ object: JSON) -> ()) {
         dataTask(request: request, method: "GET", completion: completion)
     }
@@ -51,8 +43,6 @@ public class APIManager {
         let urlString = Constants.urls.base + path + params
         let url = URL(string: urlString)!
         let request = NSMutableURLRequest(url: url)
-
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         return request
     }
