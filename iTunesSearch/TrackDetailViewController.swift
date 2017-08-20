@@ -28,5 +28,7 @@ class TrackDetailViewController: UIViewController {
         
         let description = result[Constants.keys.description].stringValue
         descriptionLabel.text = description.isEmpty ? "NA" : description
+        
+        descriptionLabel.sizeToFit()
     }
 }
