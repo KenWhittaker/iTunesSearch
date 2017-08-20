@@ -25,11 +25,10 @@ class TrackDetailViewController: UIViewController {
         trackImageView.kf.setImage(with: url)
         
         trackNameLabel.text = result[Constants.keys.trackName].stringValue
-        descriptionLabel.text = result[Constants.keys.description].stringValue
-    }
-
-    override func didReceiveMemoryWarning() {
         
-        super.didReceiveMemoryWarning()
+        let description = result[Constants.keys.description].stringValue
+        descriptionLabel.text = description.isEmpty ? "NA" : description
+        
+        descriptionLabel.sizeToFit()
     }
 }

@@ -11,6 +11,12 @@ target 'iTunesSearch' do
     inherit! :search_paths
     # Pods for testing
   end
+  
+  target 'iTunesDataTests' do
+      inherit! :search_paths
+      # Pods for testing
+      pod 'SwiftyJSON'
+  end
 
   target 'iTunesSearchUITests' do
     inherit! :search_paths

@@ -78,10 +78,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.trackNameLabel.text = result[Constants.keys.trackName].stringValue
         cell.kindLabel.text = result[Constants.keys.kind].stringValue
         
-        var price = result[Constants.keys.trackPrice].stringValue
-        price = formatCurrency(value: price)
-        
-        cell.trackPriceLabel.text = formatCurrency(value: price)
+        let price = result[Constants.keys.trackPrice].stringValue
+        cell.trackPriceLabel.text = price.isEmpty ? "NA" : String(describing: "$\(price)")
         
         return cell
     }
@@ -146,20 +144,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
             
         }
-    }
-    
-    func formatCurrency(value: String) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.maximumFractionDigits = 2
-        formatter.locale = Locale(identifier: Locale.current.identifier)
-        let result = formatter.string(from: Double(value)! as NSNumber)
-        return result!
-    }
-    
-    override func didReceiveMemoryWarning() {
-        
-        super.didReceiveMemoryWarning()
     }
 }
 
